@@ -3,18 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjulliot <sjulliot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/28 18:25:53 by sjulliot          #+#    #+#             */
-/*   Updated: 2015/05/28 18:55:55 by gbadi            ###   ########.fr       */
+/*   Created: 2015/05/28 19:00:49 by gbadi             #+#    #+#             */
+/*   Updated: 2015/05/28 19:01:04 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <termcap.h>
-#include <termios.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include "libft/libft.h"
+#include "ft_select.h"
 
 struct termios		*start_termios(void)
 {
