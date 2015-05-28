@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.h                                        :+:      :+:    :+:   */
+/*   term_clear.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/21 16:58:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:18:45 by gbadi            ###   ########.fr       */
+/*   Created: 2015/05/28 19:18:21 by gbadi             #+#    #+#             */
+/*   Updated: 2015/05/28 19:41:38 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT_H
-# define FT_SELECT_H
+#include "../libft/libft.h"
+#include <term.h>
+#include <stdio.h>
 
-# include		 <termcap.h>
-# include		 <unistd.h>
-# include		 <stdlib.h>
-# include		 "libft/libft.h"
 
-typedef struct	s_env
+/*
+static int				ft_outc(int c)
 {
-	
-}				t_env;
+	ft_putchar(c);
+	return (0);
+}
+*/
 
-int				term_clear(void);
-int				term_read(t_env *e, void (*fn)(t_env *, char*));
+int				term_clear(void)
+{
+	char		*res;
 
-#endif
+	res = tgetstr("cl", NULL);
+	if (!res)
+		return (-1);
+	tputs(res, 0, &ft_putchar);
+	return (0);
+}
