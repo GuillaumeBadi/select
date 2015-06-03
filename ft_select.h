@@ -14,6 +14,7 @@
 # define FT_SELECT_H
 
 # include		 "libft/libft.h"
+# include		 <signal.h>
 # include 		 "term/term.h"
 
 typedef struct	s_env

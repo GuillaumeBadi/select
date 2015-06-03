@@ -3,7 +3,7 @@
 
 extern int		g_signal;
 
-static int		catch_signal(int sig)
+static void		catch_signal(int sig)
 {
 	printf("%d\n", sig);
 }
