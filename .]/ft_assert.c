@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.h                                        :+:      :+:    :+:   */
+/*   ft_assert.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/21 16:58:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:18:45 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/31 14:53:03 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/31 17:00:02 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT_H
-# define FT_SELECT_H
+#include "libft.h"
 
-# include		 "libft/libft.h"
-# include 		 "term/term.h"
-
-typedef struct	s_env
+void			ft_assert(int e, char *exp)
 {
-	
-}				t_env;
-
-
-#endif
+	if (e)
+		return ;
+	else
+		ft_putendl(ft_strjoin("Assertion failed: ", exp));
+}

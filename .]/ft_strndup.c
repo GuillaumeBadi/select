@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.h                                        :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/21 16:58:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:18:45 by gbadi            ###   ########.fr       */
+/*   Created: 2014/11/10 15:17:56 by gbadi             #+#    #+#             */
+/*   Updated: 2014/11/10 15:17:58 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT_H
-# define FT_SELECT_H
+#include "libft.h"
+#include <stdlib.h>
 
-# include		 "libft/libft.h"
-# include 		 "term/term.h"
-
-typedef struct	s_env
+char			*ft_strndup(char const *s, size_t len)
 {
-	
-}				t_env;
+	char			*dest;
 
-
-#endif
+	dest = (char *)malloc(sizeof(char) * len + 1);
+	dest = ft_strncpy(dest, s, len);
+	return (dest);
+}

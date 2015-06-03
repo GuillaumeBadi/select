@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.h                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/21 16:58:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:18:45 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/31 14:21:50 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/31 14:22:07 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT_H
-# define FT_SELECT_H
+#include "libft.h"
 
-# include		 "libft/libft.h"
-# include 		 "term/term.h"
-
-typedef struct	s_env
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	
-}				t_env;
+	size_t		i;
 
-
-#endif
+	i = 0;
+	if (n == 0)
+		return (0);
+	while (s1[i] == s2[i] && s1[i] != '\0' && i + 1 < n)
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}

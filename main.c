@@ -17,49 +17,28 @@
 #include <term.h>
 #include <curses.h>
 
-struct termios		*start_termios(void)
-{
-	char			*term_name;
-	struct termios	term;
-	struct termios	*save;
-
-	save = (struct termios*)malloc(sizeof(struct termios));
-	if ((term_name = getenv("TERM")) == NULL)
-		return (NULL);
-	if (tgetent(NULL, term_name) == ERR)
-		return (NULL);
-	if (tcgetattr(0, &term) == -1)
-		return (NULL);
-	term.c_lflag &= ~(ICANON);
-	term.c_lflag &= ~(ECHO);
-	term.c_cc[VMIN] = 1;
-	term.c_cc[VTIME] = 0;
-	if (tcsetattr(0, TCSADRAIN, &term) == -1)
-		return (NULL);	
-	return (save);
-}
-
-void				end_termios(struct termios *term_conf_save)
-{
-	tcsetattr(0, 0, term_conf_save);
-	free(term_conf_save);
-}
+#define INIT_FAIL 1
+#define EXIT_FAIL 2
 
 void				handle_input(t_env *e, char *input)
 {
 	(void)e;
 	(void)input;
+	printf("%s\n", input);
 }
 
 int					main(int ac, char **av)
 {
-	struct termios	*term_conf_save;
 	t_env			e;
 
 	(void)ac;
 	(void)av;
-	term_conf_save = start_termios();
-	term_read(&e, handle_input);
-	end_termios(term_conf_save);
+	if (!term_init())
+		return (INIT_FAIL);
+
+	printf("%d\n", term_width());
+
+	if (term_exit())
+		return (EXIT_FAIL);
 	return (0);
 }

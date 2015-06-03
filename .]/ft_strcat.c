@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.h                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/21 16:58:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:18:45 by gbadi            ###   ########.fr       */
+/*   Created: 2014/11/10 15:15:19 by gbadi             #+#    #+#             */
+/*   Updated: 2014/11/10 15:15:19 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT_H
-# define FT_SELECT_H
+#include "libft.h"
 
-# include		 "libft/libft.h"
-# include 		 "term/term.h"
-
-typedef struct	s_env
+char			*ft_strcat(char *s1, const char *s2)
 {
-	
-}				t_env;
+	int			i;
+	int			j;
 
-
-#endif
+	i = 0;
+	j = 0;
+	while (s1[i])
+		i++;
+	while (s2[j])
+		s1[i++] = s2[j++];
+	s1[i] = '\0';
+	return (s1);
+}

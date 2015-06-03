@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.h                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/21 16:58:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:18:45 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/31 14:23:43 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/31 14:23:53 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT_H
-# define FT_SELECT_H
+#include "libft.h"
 
-# include		 "libft/libft.h"
-# include 		 "term/term.h"
-
-typedef struct	s_env
+char			*ft_strrchr(char const *s, int c)
 {
-	
-}				t_env;
+	int			i;
+	char		d;
 
-
-#endif
+	i = ft_strlen(s);
+	d = c;
+	while (i >= 0 && s[i] != d)
+	{
+		i--;
+		if (!s[i])
+			return (NULL);
+	}
+	return ((char*)s + i);
+}

@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/21 16:58:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:18:45 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/31 14:18:05 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/31 14:18:48 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT_H
-# define FT_SELECT_H
+#include "libft.h"
 
-# include		 "libft/libft.h"
-# include 		 "term/term.h"
-
-typedef struct	s_env
+void				*ft_memchr(const void *s, int c, size_t n)
 {
-	
-}				t_env;
+	unsigned char	*tmp;
 
-
-#endif
+	if (s == NULL)
+		return (NULL);
+	tmp = (unsigned char *)s;
+	while (n--)
+	{
+		if (*tmp == (unsigned char)c)
+			return (tmp);
+		++tmp;
+	}
+	return (NULL);
+}

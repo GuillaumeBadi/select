@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/21 16:58:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:18:45 by gbadi            ###   ########.fr       */
+/*   Created: 2014/11/10 15:15:05 by gbadi             #+#    #+#             */
+/*   Updated: 2014/11/10 15:15:06 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT_H
-# define FT_SELECT_H
-
-# include		 "libft/libft.h"
-# include 		 "term/term.h"
-
-typedef struct	s_env
+void	ft_putnbr_fd(int n, int fd)
 {
-	
-}				t_env;
-
-
-#endif
+	if (n == -2147483647)
+	{
+		write(fd, "-2147483647", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		ft_putchar_fd('-');
+		n = -n;
+	}
+	else if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	else
+		ft_putchar_fd(n + 48, fd);
+}

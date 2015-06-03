@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.h                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/21 16:58:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:18:45 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/31 14:22:17 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/31 14:22:22 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT_H
-# define FT_SELECT_H
+#include "libft.h"
 
-# include		 "libft/libft.h"
-# include 		 "term/term.h"
-
-typedef struct	s_env
+char			*ft_strncpy(char *dest, char const *src, size_t n)
 {
-	
-}				t_env;
+	size_t		i;
 
-
-#endif
+	i = 0;
+	while (i < n && src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
+}

@@ -1,0 +1,18 @@
+cd..
+cd ..
+..
+cd ..
+..
+cd ..
+l
+ls -la
+l
+ls -la
+ls -l
+make clean
+..
+cd ..
+cd ..
+cd -
+ls
+cd ..

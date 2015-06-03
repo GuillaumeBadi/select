@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.h                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/21 16:58:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:18:45 by gbadi            ###   ########.fr       */
+/*   Created: 2014/11/10 15:13:02 by gbadi             #+#    #+#             */
+/*   Updated: 2014/11/10 15:13:08 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT_H
-# define FT_SELECT_H
+#include "libft.h"
 
-# include		 "libft/libft.h"
-# include 		 "term/term.h"
-
-typedef struct	s_env
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	
-}				t_env;
+	size_t			i;
+	unsigned char	*dest;
+	unsigned char	*srce;
 
-
-#endif
+	dest = (unsigned char*)dst;
+	srce = (unsigned char*)src;
+	i = -1;
+	while (++i < n)
+	{
+		*(dest + i) = *(srce + i);
+		if (*(srce + i) == (unsigned char)c)
+			return (dst + i + 1);
+	}
+	return (NULL);
+}

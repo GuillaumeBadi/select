@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.h                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/21 16:58:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:18:45 by gbadi            ###   ########.fr       */
+/*   Created: 2014/11/10 15:16:23 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/05 17:25:10 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT_H
-# define FT_SELECT_H
+#include "libft.h"
+#include <stdlib.h>
 
-# include		 "libft/libft.h"
-# include 		 "term/term.h"
-
-typedef struct	s_env
+char			*ft_strjoin(char const *s1, char const *s2)
 {
-	
-}				t_env;
+	char			*dest;
+	size_t			size_s1;
+	size_t			size_s2;
+	int				i;
 
-
-#endif
+	size_s1 = ft_strlen(s1);
+	size_s2 = ft_strlen(s2);
+	dest = (char *)malloc(size_s1 + size_s2 + 1);
+	if (dest == NULL)
+		return (NULL);
+	i = 0;
+	while (size_s1--)
+		dest[i++] = *s1++;
+	while (size_s2--)
+		dest[i++] = *s2++;
+	dest[i] = 0;
+	return (dest);
+}

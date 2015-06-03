@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.h                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/21 16:58:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:18:45 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/31 17:27:19 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/31 17:27:20 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT_H
-# define FT_SELECT_H
+#include "libft.h"
 
-# include		 "libft/libft.h"
-# include 		 "term/term.h"
-
-typedef struct	s_env
+static void		ft_lstdel_next(t_list *alst, void (*del)(void *, size_t len))
 {
-	
-}				t_env;
+	if (!alst)
+		return ;
+	else
+	{
+		ft_lstdel_next(alst->next, del);
+		ft_lstdelone(&alst, del);
+	}
+}
 
-
-#endif
+void			ft_lstdel(t_list **alst, void (*del)(void *, size_t len))
+{
+	ft_lstdel_next(*alst, del);
+	*alst = NULL;
+}

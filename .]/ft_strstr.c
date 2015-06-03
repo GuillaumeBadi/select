@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   term_read.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/28 20:02:39 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:24:22 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/31 14:23:25 by gbadi             #+#    #+#             */
+/*   Updated: 2015/01/06 22:00:36 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_select.h"
-#include <stdio.h>
+#include "libft.h"
 
-int				term_read(t_env *e, void (*fn)(t_env *, char*))
+char			*ft_strstr(const char *s1, const char *s2)
 {
-	char		buffer[3];
+	size_t		i;
+	size_t		j;
+	size_t		len;
 
-	while (1)
+	i = 0;
+	j = 0;
+	len = 0;
+	while (s2[len])
+		len++;
+	if (len == 0)
+		return ((char *)s1);
+	while (s1[i])
 	{
-		read(0, buffer, 3);
-		if (buffer[0] == 4)
-			exit(0);
-		fn(e, buffer);
+		while (s1[i + j] == s2[j])
+		{
+			j++;
+			if (j == len)
+				return ((char *)s1 + i);
+		}
+		j = 0;
+		i++;
 	}
-	return (0);
+	return (NULL);
 }

@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.h                                        :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/21 16:58:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:18:45 by gbadi            ###   ########.fr       */
+/*   Created: 2014/11/10 15:10:32 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/14 05:54:25 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT_H
-# define FT_SELECT_H
+#include "libft.h"
 
-# include		 "libft/libft.h"
-# include 		 "term/term.h"
-
-typedef struct	s_env
+int				ft_intlen(int number)
 {
-	
-}				t_env;
+	int			i;
 
-
-#endif
+	i = 0;
+	if (number == 0)
+		return (1);
+	if (number < 0)
+	{
+		number = -number;
+		i = 1;
+	}
+	while (number > 0)
+	{
+		number /= 10;
+		i++;
+	}
+	return (i);
+}

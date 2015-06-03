@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.h                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/21 16:58:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:18:45 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/31 14:26:39 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/31 17:51:58 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT_H
-# define FT_SELECT_H
+#include "libft.h"
 
-# include		 "libft/libft.h"
-# include 		 "term/term.h"
-
-typedef struct	s_env
+int				ft_atoi(const char *str)
 {
-	
-}				t_env;
+	int			result;
+	int			i;
+	int			sign;
 
-
-#endif
+	result = 0;
+	sign = 1;
+	i = 0;
+	if (!str)
+		return (0);
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+		result = (result * 10) + str[i++] - 48;
+	return (result * sign);
+}

@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.h                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/21 16:58:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:18:45 by gbadi            ###   ########.fr       */
+/*   Created: 2014/11/10 15:18:49 by gbadi             #+#    #+#             */
+/*   Updated: 2014/11/26 04:09:15 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT_H
-# define FT_SELECT_H
+#include "libft.h"
+#include <stdlib.h>
 
-# include		 "libft/libft.h"
-# include 		 "term/term.h"
-
-typedef struct	s_env
+char			*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	
-}				t_env;
+	char			*dest;
+	size_t			i;
 
-
-#endif
+	i = 0;
+	dest = (char *)malloc(len + 1);
+	if (dest == NULL)
+		return (NULL);
+	while (len--)
+	{
+		dest[i] = s[start + i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}

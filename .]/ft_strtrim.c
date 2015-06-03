@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.h                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/21 16:58:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:18:45 by gbadi            ###   ########.fr       */
+/*   Created: 2014/11/05 16:41:12 by gbadi             #+#    #+#             */
+/*   Updated: 2015/01/07 18:01:26 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT_H
-# define FT_SELECT_H
+#include "libft.h"
 
-# include		 "libft/libft.h"
-# include 		 "term/term.h"
-
-typedef struct	s_env
+char			*ft_strtrim(char const *s)
 {
-	
-}				t_env;
+	int				i;
+	int				len;
 
-
-#endif
+	i = 0;
+	len = ft_strlen(s) - 1;
+	if (!s)
+		return (0);
+	while (ft_isspace(s[i]))
+		i++;
+	while (ft_isspace(s[len]))
+		len--;
+	return (ft_strsub(s, i, len - i + 1));
+}
