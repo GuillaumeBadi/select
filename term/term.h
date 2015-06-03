@@ -17,6 +17,7 @@
 # define INVISIBLE		"vi"
 
 int						ft_outc(int c);
+void					handle_input(void *e, char *input);
 
 void					term_clear(char *mode);
 int						term_init(void);
@@ -27,5 +28,6 @@ void					term_no_underline(void);
 int 					term_height(void);
 int						term_width(void);
 void					term_set_cursor(char *mode);
+void					term_loop(void *e);
 
 #endif

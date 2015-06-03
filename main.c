@@ -20,11 +20,10 @@
 #define INIT_FAIL 1
 #define EXIT_FAIL 2
 
-void				handle_input(t_env *e, char *input)
+void				handle_input(void *e, char *input)
 {
 	(void)e;
 	(void)input;
-	printf("%s\n", input);
 }
 
 int					main(int ac, char **av)
@@ -36,8 +35,9 @@ int					main(int ac, char **av)
 	if (!term_init())
 		return (INIT_FAIL);
 
-	term_set_cursor(VISIBLE);
+	signal_init();
 
+	term_loop(&e);
 	if (term_exit())
 		return (EXIT_FAIL);
 	return (0);

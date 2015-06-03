@@ -21,5 +21,6 @@ typedef struct	s_env
 	
 }				t_env;
 
+void			signal_init(void);
 
 #endif
