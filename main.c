@@ -36,7 +36,7 @@ int					main(int ac, char **av)
 	if (!term_init())
 		return (INIT_FAIL);
 
-	printf("%d\n", term_width());
+	term_set_cursor(VISIBLE);
 
 	if (term_exit())
 		return (EXIT_FAIL);

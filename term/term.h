@@ -9,14 +9,23 @@
 # include				<stdlib.h>
 # include				<curses.h>
 
-void					term_clear(void);
+# define ALL			"cl"
+# define FROM_CURSOR	"cd"
+# define LINE			"ce"
+
+# define VISIBLE		"ve"
+# define INVISIBLE		"vi"
+
+int						ft_outc(int c);
+
+void					term_clear(char *mode);
 int						term_init(void);
 int						term_exit(void);
-int						ft_outc(int c);
 void					term_goto(int x, int y);
 void					term_underline(void);
 void					term_no_underline(void);
 int 					term_height(void);
 int						term_width(void);
+void					term_set_cursor(char *mode);
 
 #endif

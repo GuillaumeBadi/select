@@ -1,7 +1,7 @@
 
 #include "term.h"
 
-void				term_clear(char *mode)
+void			term_set_cursor(char *mode)
 {
 	char			*buffer;
 
