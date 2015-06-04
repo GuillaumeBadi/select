@@ -1,5 +1,12 @@
 
-#include "term.h"
+# include				<libft.h>
+# include				<termcap.h>
+# include				<unistd.h>
+# include				<term.h>
+# include				<stdlib.h>
+# include				<curses.h>
+
+#include "fterm.h"
 
 int					term_init(void)
 {

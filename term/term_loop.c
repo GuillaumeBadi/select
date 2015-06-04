@@ -1,5 +1,6 @@
 
-#include "term.h"
+#include <unistd.h>
+#include "fterm.h"
 
 void			term_loop(void *e)
 {
@@ -8,10 +9,8 @@ void			term_loop(void *e)
 
 	while ((ret = read(0, buffer, 2)) > 0)
 	{
-		if (*buffer == 4)
-		{
-			handle_input(e, buffer);
-			return ;
-		}
+//		if (4 == buffer[0])
+//			return ;
+		handle_input(e, buffer);
 	}
 }

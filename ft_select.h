@@ -6,22 +6,46 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/21 16:58:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:18:45 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/06/04 01:40:30 by sjulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_SELECT_H
 # define FT_SELECT_H
 
-# include		 "libft/libft.h"
-# include		 <signal.h>
-# include 		 "term/term.h"
+# include		<libft.h>
+# include		<sys/stat.h>
+# include		<signal.h>
+# include 		"term/fterm.h"
 
-typedef struct	s_env
+typedef enum		e_file_type
 {
-	
-}				t_env;
+	T_FILE,
+	T_BIN,
+	T_DIR,
+	T_HIDDEN,
+	T_UNDEFINED
+}					t_file_type;
 
-void			signal_init(void);
+typedef struct		s_file
+{
+	int				index;
+	t_file_type		file_type;
+	char			visible;
+	char			*name;
+}					t_file;
+
+
+typedef struct		s_env
+{
+	t_chain			*chain;
+}					t_env;
+
+void				signal_init(void);
+void				ft_warning (char *message);
+void				throw_error(char *message);
+t_file_type			get_file_type(char *name);
+t_chain				*get_list(int ac, char **argv);
+void				print_list(t_env *env);
 
 #endif

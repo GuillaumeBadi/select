@@ -1,5 +1,6 @@
 
 #include "ft_select.h"
+#include <stdio.h>
 
 extern int		g_signal;
 

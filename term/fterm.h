@@ -1,20 +1,14 @@
 
-#ifndef TERM_H
+#ifndef FTERM_H
 
-# define TERM_H
+# define FTERM_H
 
-# include				<termcap.h>
-# include				<unistd.h>
-# include				<term.h>
-# include				<stdlib.h>
-# include				<curses.h>
+# define TC_ALL			"cl"
+# define TC_FROM_CURSOR	"cd"
+# define TC_LINE		"ce"
 
-# define ALL			"cl"
-# define FROM_CURSOR	"cd"
-# define LINE			"ce"
-
-# define VISIBLE		"ve"
-# define INVISIBLE		"vi"
+# define C_VISIBLE		"ve"
+# define C_INVISIBLE	"vi"
 
 int						ft_outc(int c);
 void					handle_input(void *e, char *input);

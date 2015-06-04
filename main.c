@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 19:00:49 by gbadi             #+#    #+#             */
-/*   Updated: 2015/05/28 20:34:31 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/06/04 01:54:02 by sjulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,16 @@ int					main(int ac, char **av)
 {
 	t_env			e;
 
-	(void)ac;
-	(void)av;
+	if (ac == 1)
+		return (0);
 	if (!term_init())
 		return (INIT_FAIL);
 
-	signal_init();
-
-	term_loop(&e);
+//	term_loop(&e);
+	term_clear(TC_ALL);
+	e.chain = get_list(ac - 1, av + 1);
+	print_list(&e);
+	//printf("term_height [%d]\n", term_height());
 	if (term_exit())
 		return (EXIT_FAIL);
 	return (0);
