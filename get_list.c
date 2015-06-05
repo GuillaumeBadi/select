@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_list.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sjulliot <sjulliot@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/06/05 16:17:21 by sjulliot          #+#    #+#             */
+/*   Updated: 2015/06/05 16:17:23 by sjulliot         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_select.h"
 
-t_file_type	get_file_type(char *name)
+t_file_type			get_file_type(char *name)
 {
 	struct stat		s;
 

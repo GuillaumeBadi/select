@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_outc.c                                          :+:      :+:    :+:   */
+/*   underline.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjulliot <sjulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/05 16:49:37 by sjulliot          #+#    #+#             */
-/*   Updated: 2015/06/05 16:55:36 by sjulliot         ###   ########.fr       */
+/*   Created: 2015/06/05 12:13:43 by sjulliot          #+#    #+#             */
+/*   Updated: 2015/06/05 12:20:00 by sjulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-#include <termcap.h>
-#include <term.h>
-#include <stdlib.h>
+#include "ft_select.h"
 #include <curses.h>
-#include "fterm.h"
+#include <term.h>
 
-void				term_clear(char *mode)
+void			enable_underline(void)
 {
-	char			*buffer;
+	if (tputs(tgetstr("us", NULL), 0, ft_outc) == ERR)
+		exit(42);
+}
 
-	buffer = NULL;
-	tputs(tgetstr(mode, &buffer), 0, ft_outc);
-	free(buffer);
+void			disable_underline(void)
+{
+	if (tputs(tgetstr("ue", NULL), 0, ft_outc) == ERR)
+		exit(42);
 }

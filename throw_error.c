@@ -11,14 +11,11 @@
 /* ************************************************************************** */
 
 #include <ft_io.h>
-
-void			ft_warning (char *message)
-{
-	ft_putendl(message);
-}
+#include "ft_select.h"
 
 void			throw_error(char *message)
 {
 	ft_putendl(message);
+	term_exit();
 	exit(42);
 }

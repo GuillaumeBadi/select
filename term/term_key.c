@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_outc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: sjulliot <sjulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/10 15:13:53 by gbadi             #+#    #+#             */
-/*   Updated: 2014/11/10 15:13:54 by gbadi            ###   ########.fr       */
+/*   Created: 2015/06/05 16:49:37 by sjulliot          #+#    #+#             */
+/*   Updated: 2015/06/05 16:53:21 by sjulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
+#include <termcap.h>
+#include <unistd.h>
+#include <term.h>
 #include <stdlib.h>
+#include <curses.h>
 
-void			ft_memdel(void **ap)
+void		term_key(void)
 {
-	free(*ap);
-	*ap = NULL;
+	char		*ap;
+
+	ap = NULL;
+	tputs(tgetstr("kF", &ap), 0, ft_outc);
+	free(ap);
 }

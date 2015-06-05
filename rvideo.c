@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   rvideo.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: sjulliot <sjulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/31 14:18:05 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/31 14:18:48 by gbadi            ###   ########.fr       */
+/*   Created: 2015/06/05 12:10:56 by sjulliot          #+#    #+#             */
+/*   Updated: 2015/06/05 12:20:24 by sjulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_select.h"
+#include <curses.h>
+#include <term.h>
 
-void				*ft_memchr(const void *s, int c, size_t n)
+void			enable_rvideo(void)
 {
-	unsigned char	*tmp;
+	if (tputs(tgetstr("mr", NULL), 0, ft_outc) == ERR)
+		exit(42);
+}
 
-	if (s == NULL)
-		return (NULL);
-	tmp = (unsigned char *)s;
-	while (n--)
-	{
-		if (*tmp == (unsigned char)c)
-			return (tmp);
-		++tmp;
-	}
-	return (NULL);
+void			disale_rvideo(void)
+{
+	if (tputs(tgetstr("me", NULL), 0, ft_outc) == ERR)
+		exit(42);
 }

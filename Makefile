@@ -3,7 +3,6 @@
 SRC_PATH = ./
 SRC_NAME = main.c \
 		   get_list.c \
-		   signal.c \
 		   throw_error.c \
 		   term/ft_outc.c \
 		   term/term_clear.c \
@@ -14,7 +13,11 @@ SRC_NAME = main.c \
 		   term/term_no_underline.c \
 		   term/term_set_cursor.c \
 		   term/term_size.c \
-		   print_list.c
+		   print_list.c \
+		   handle_input.c \
+		   rvideo.c \
+		   underline.c \
+		   input_char.c
 OBJ_PATH = ./
 LIBFT_PATH = libft
 INC_PATH = $(LIBFT_PATH)/include/

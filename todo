@@ -1,15 +1,4 @@
-recuperation signaux redimentionnement
-differencier entree de esc
-changer touche 's' pour ' '
-aller a la position suivante quand selection
-changer touche 'x' pour 'delete'
-ajouter restauration terminal
 checker leaks
-verifier ctrl+z / fg
 coloration selon extension ?
 positionnement quand l'utilisateur tape des caracteres
-checker fonctions statiques
-checker fonctions interdites
 checker Norme
-catcher signaux de kill
-termcap et non ncurse ?
