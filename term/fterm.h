@@ -11,7 +11,6 @@
 # define C_INVISIBLE	"vi"
 
 int						ft_outc(int c);
-void					handle_input(void *e, char *input);
 
 void					term_clear(char *mode);
 int						term_init(void);

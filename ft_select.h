@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/21 16:58:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/06/04 01:40:30 by sjulliot         ###   ########.fr       */
+/*   Updated: 2015/06/05 04:52:36 by sjulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,16 @@ typedef struct		s_file
 	int				index;
 	t_file_type		file_type;
 	char			visible;
+	char			checked;
 	char			*name;
 }					t_file;
-
 
 typedef struct		s_env
 {
 	t_chain			*chain;
+	int				chain_size;
+	int				current_index;
+	int				deleted;
 }					t_env;
 
 void				signal_init(void);

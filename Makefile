@@ -10,14 +10,13 @@ SRC_NAME = main.c \
 		   term/term_exit.c \
 		   term/term_init.c \
 		   term/term_goto.c \
-		   term/term_loop.c \
 		   term/term_underline.c \
 		   term/term_no_underline.c \
 		   term/term_set_cursor.c \
 		   term/term_size.c \
 		   print_list.c
 OBJ_PATH = ./
-LIBFT_PATH = ../libft
+LIBFT_PATH = libft
 INC_PATH = $(LIBFT_PATH)/include/
 
 NAME = ft_select

@@ -24,7 +24,8 @@ static t_file		new_file(int index, char *name)
 
 	res.index = index;
 	res.file_type = get_file_type(name);
-	res.visible = 'y';
+	res.visible = 1;
+	res.checked = 0;
 	res.name = name;
 	return (res);
 }
